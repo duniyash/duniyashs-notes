@@ -17,7 +17,10 @@ const Header = (props) => {
       >
         //notes
       </h1>
-      <Button onClick={darkmodeHandler}>
+      <Button
+        className={`${props.darkModeState ? "text-white" : "text-gray-600"}`}
+        onClick={darkmodeHandler}
+      >
         <CgDarkMode />
       </Button>
     </header>
