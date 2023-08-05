@@ -1,4 +1,5 @@
 import React from "react";
+import { MdDelete } from "react-icons/md";
 
 function Note() {
   return (
@@ -9,9 +10,10 @@ function Note() {
         sint corporis iusto deserunt libero consequatur dolor fugiat ea laborum
         culpa fuga?
       </span>
-      <div className="flex flex-row justify-between w-full">
-        <p className="text-sm underline p-0 p-2">12/07/2023</p>
-        <button className="p-2 bg-white">Open</button>
+      <div className="flex flex-row items-center justify-between w-full">
+        <button className="font-extralight text-lg p-2 bg-white hover:bg-red-500 hover:text-white object-right h-fit w-fit transition ease-in-out">
+          <MdDelete />
+        </button>
       </div>
     </div>
   );
