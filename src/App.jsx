@@ -1,20 +1,15 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Header from "./components/UI/Header";
+import Header from './components/UI/Header';
 
 function App() {
   const [darkModeState, setDarkModeState] = useState(false);
 
   return (
     <main
-      className={`h-screen transition ease-in-out duration-00  ${
-        darkModeState ? "bg-slate-900 " : "bg-slate-100 "
-      }`}
+      className={`h-screen transition duration-300 ease-in-out  ${darkModeState ? 'bg-slate-900 ' : 'bg-slate-100 '}`}
     >
-      <Header
-        darkModeState={darkModeState}
-        setDarkModeState={setDarkModeState}
-      />
+      <Header darkModeState={darkModeState} setDarkModeState={setDarkModeState} />
     </main>
   );
 }
