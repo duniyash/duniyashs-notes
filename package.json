@@ -29,6 +29,7 @@
     "prettier": "^3.0.1",
     "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwindcss": "^3.3.3",
+    "twrnc": "^3.6.3",
     "vite": "^4.4.0"
   }
 }

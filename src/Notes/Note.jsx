@@ -1,5 +1,5 @@
 const Note = (props) => {
-  return <div></div>;
-};
+    return <div></div>
+}
 
-export default Note;
+export default Note
