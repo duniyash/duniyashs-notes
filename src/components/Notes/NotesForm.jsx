@@ -7,8 +7,8 @@ const NotesForm = (props) => {
     const {
         value: enteredNote,
         isValid: enteredNoteIsValid,
-        valueChangeHandler: nameChangedHandler,
-        inputBlurHandler: nameBlurHandler,
+        valueChangeHandler: noteChangedHandler,
+        inputBlurHandler: noteBlurHandler,
         reset: resetNameInput,
     } = useFormInput((value) => value !== '')
 
@@ -20,10 +20,7 @@ const NotesForm = (props) => {
             return
         }
 
-        await addDoc(collection(db, 'users', props.userID, 'notes'), {
-            content: enteredNote,
-            timeAdded: serverTimestamp(),
-        })
+        props.addNote(props.userID, enteredNote)
 
         console.log(enteredNote)
         resetNameInput()
@@ -31,21 +28,27 @@ const NotesForm = (props) => {
 
     return (
         <form
-            className={`flex h-fit flex-col gap-4 rounded-lg p-4 font-mono ${
+            className={`sticky flex h-fit min-w-[25%] flex-col gap-4 rounded-lg p-4 font-mono ${
                 props.darkModeState ? 'bg-yellow-200' : 'bg-yellow-300'
             }`}
             onSubmit={NoteSubmissionHandler}
         >
             <input
-                className={`bg rounded-lg bg-white p-2 font-bold text-gray-800 transition duration-300  ease-in-out`}
+                className={`bg rounded-lg bg-white p-2 font-bold text-gray-800 transition duration-300 ease-in-out`}
                 type="text"
                 placeholder="enter text"
-                id="name"
-                onChange={nameChangedHandler}
-                onBlur={nameBlurHandler}
+                id="note"
+                autoComplete="off"
+                onChange={noteChangedHandler}
+                onBlur={noteBlurHandler}
                 value={enteredNote}
             />
-            <Button>Submit</Button>
+            <Button
+                isEnabled={enteredNoteIsValid}
+                darkModeState={props.darkModeState}
+            >
+                {enteredNoteIsValid ? 'Submit' : '↑↑ Write some shit ↑↑'}
+            </Button>
         </form>
     )
 }

@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import { collection, addDoc } from 'firebase/firestore'
+import { useState } from 'react'
 
 import Header from './components/UI/Header'
 import NotesPage from './components/Notes/NotesPage'
@@ -45,7 +44,7 @@ function App() {
 
     return (
         <main
-            className={`h-screen w-screen overflow-hidden transition duration-300 ease-in-out  ${
+            className={`w-screen overflow-visible transition duration-300 ease-in-out ${
                 darkModeState ? 'bg-slate-900 ' : 'bg-slate-100 '
             }`}
         >
