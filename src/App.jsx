@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
+import { collection, addDoc } from 'firebase/firestore'
 
 import Header from './components/UI/Header'
-import Note from './Notes/Note'
+import NotesPage from './components/Notes/NotesPage'
 
 function App() {
+    //  TODO : convert Darkmode into it's own custom hook
+
     const [darkModeState, setDarkModeState] = useState(() => {
         const darkmodeLocalStorage = localStorage.getItem('darkModeState')
 
@@ -38,6 +41,8 @@ function App() {
         localStorage.setItem('darkModeState', JSON.stringify(!darkModeState))
     }
 
+    const userID = 'i709Ujhae3VuFBMLcLqYKdz5k5D3'
+
     return (
         <main
             className={`h-screen w-screen overflow-hidden transition duration-300 ease-in-out  ${
@@ -48,9 +53,7 @@ function App() {
                 darkModeState={darkModeState}
                 setDarkModeState={darkModeStateHandler}
             />
-            <section className="z-20 flex w-screen flex-col gap-4 p-8 pt-0">
-                <Note darkModeState={darkModeState} />
-            </section>
+            <NotesPage darkModeState={darkModeState} userID={userID} />
         </main>
     )
 }
