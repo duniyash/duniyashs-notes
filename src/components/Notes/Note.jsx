@@ -7,7 +7,7 @@ const Note = (props) => {
 
     return (
         <div
-            className={`h-fit min-w-[33%] rounded-lg p-4 font-mono ${
+            className={`h-fit min-h-fit rounded-lg p-4 font-mono ${
                 props.darkModeState ? 'bg-yellow-200' : 'bg-yellow-300'
             }`}
         >

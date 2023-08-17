@@ -77,7 +77,7 @@ const NotesPage = (props) => {
 
     return (
         <>
-            <section className="sticky z-20 flex min-h-screen w-screen flex-wrap content-start items-start gap-4 overflow-y-auto p-8 pt-4">
+            <section className="sticky z-20 flex min-h-screen w-screen flex-wrap content-start items-start gap-2 overflow-y-auto p-8 pt-4">
                 <NotesForm
                     darkModeState={props.darkModeState}
                     userID={props.userID}
